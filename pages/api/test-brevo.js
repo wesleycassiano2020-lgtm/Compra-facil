@@ -12,3 +12,6 @@ export default async function handler(req, res) {
   const data = await r.json();
   res.status(200).json(data);
 }
+sender: {email: 'wesleycassiano2020@brevo.com', name: 'COMPRA FACIL'}, // ERA ADMIN_EMAIL
+to: [{email: process.env.ADMIN_EMAIL}], // ESSE DEIXA ASSIM PRA RECEBER NO GMAIL
+  
