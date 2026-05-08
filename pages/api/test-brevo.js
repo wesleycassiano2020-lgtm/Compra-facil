@@ -3,11 +3,12 @@ export default async function handler(req, res) {
     method: 'POST',
     headers: {'api-key': process.env.BREVO_API_KEY,'Content-Type': 'application/json'},
     body: JSON.stringify({
-      sender: {email: process.env.ADMIN_EMAIL, name: 'Teste'},
-      to: [{email: process.env.ADMIN_EMAIL}],
+      sender: {email: 'wesleycassiano2020@brevo.com', name: 'COMPRA FACIL'}, // MUDEI AQUI
+      to: [{email: process.env.ADMIN_EMAIL}], // Deixa o gmail aqui pra RECEBER
       subject: 'Teste Brevo Vercel',
-      htmlContent: '<h1>Funcionou!</h1>'
+      htmlContent: '<h1>Funcionou!</h1><p>Se chegou, seu site tá online.</p>'
     })
   });
-  res.status(200).json(await r.json());
+  const data = await r.json();
+  res.status(200).json(data);
 }
